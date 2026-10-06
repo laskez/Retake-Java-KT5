@@ -1,0 +1,23 @@
+package com.example.retake_kt5.exception;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(TaskNotFoundException.class)
+    public String handleTaskNotFound(TaskNotFoundException ex, Model model) {
+        model.addAttribute("errorMessage", ex.getMessage());
+        model.addAttribute("errorCode", 404);
+        return "error";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleGeneral(Exception ex, Model model) {
+        model.addAttribute("errorMessage", "Произошла ошибка: " + ex.getMessage());
+        model.addAttribute("errorCode", 500);
+        return "error";
+    }
+}

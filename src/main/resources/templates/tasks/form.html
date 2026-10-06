@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Форма задачи</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/morph/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">Список задач</a>
+        <div class="navbar-nav">
+            <a class="nav-link" href="/">Главная</a>
+            <a class="nav-link" href="/tasks">Задачи</a>
+            <a class="nav-link" href="/about">О приложении</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1 th:text="${title}">Форма задачи</h1>
+
+    <form th:action="${task.id == null} ? @{/tasks} : @{/tasks/{id}(id=${task.id})}"
+          th:object="${task}" method="post" class="mt-3" style="max-width: 600px;">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Название</label>
+            <input type="text" id="title" th:field="*{title}" class="form-control"/>
+            <div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <textarea id="description" th:field="*{description}" class="form-control" rows="4"></textarea>
+            <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">Категория</label>
+            <select id="category" th:field="*{category}" class="form-select">
+                <option value="">-- Выберите категорию --</option>
+                <option th:each="cat : ${categories}"
+                        th:value="${cat.id}"
+                        th:text="${cat.name}">Категория</option>
+            </select>
+            <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/tasks" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+</body>
+</html>
