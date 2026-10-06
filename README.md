@@ -24,17 +24,17 @@
 
 ## Что демонстрируется
 
-> - Spring MVC: Controller -> Service -> Repository
-> - Spring Data JPA + Hibernate
-> - База данных H2 (файловая)
-> - Spring Security с HTTP Basic Auth
-> - Пользователи в БД - таблица `users`
-> - BCrypt для хеширования паролей
-> - CustomUserDetailsService - загрузка пользователей из БД
-> - Связь `@ManyToOne` между задачами и категориями
-> - Валидация формы (`@Valid`, `@NotBlank`, `@Size`, `@NotNull`)
-> - Обработка ошибок (`@ExceptionHandler` + страницы `404.html` / `error.html`)
-> - Стилизация через Bootstrap 5 + тема Morph
+- Spring MVC: Controller -> Service -> Repository
+- Spring Data JPA + Hibernate
+- База данных H2 (файловая)
+- Spring Security с HTTP Basic Auth
+- Пользователи в БД - таблица `users`
+- BCrypt для хеширования паролей
+- CustomUserDetailsService - загрузка пользователей из БД
+- Связь `@ManyToOne` между задачами и категориями
+- Валидация формы (`@Valid`, `@NotBlank`, `@Size`, `@NotNull`)
+- Обработка ошибок (`@ExceptionHandler` + страницы `404.html` / `error.html`)
+- Стилизация через Bootstrap 5 + тема Morph
 
 ## Учетные данные
 
@@ -59,16 +59,16 @@
 
 **H2 (файловая), настройки в `src/main/resources/application.properties`:**
 
-> - JDBC URL: `jdbc:h2:file:~/retake-kt5-db`
-> - User: `laskez`
-> - Password:
+- JDBC URL: `jdbc:h2:file:~/retake-kt5-db`
+- User: `laskez`
+- Password:
 
 ### H2 Console
 
-> - **URL:** http://localhost:8080/h2-console
-> - **JDBC URL:** `jdbc:h2:file:~/retake-kt5-db`
-> - **User Name:** `laskez`
-> - **Password:**
+- **URL:** http://localhost:8080/h2-console
+- **JDBC URL:** `jdbc:h2:file:~/retake-kt5-db`
+- **User Name:** `laskez`
+- **Password:**
 
 **Примеры запросов**
 
@@ -94,6 +94,6 @@
 
 После запуска открыть: http://localhost:8080
 
->**login** - laskez
+**login** - laskez
 
->**password** - laskez
+**password** - laskez
